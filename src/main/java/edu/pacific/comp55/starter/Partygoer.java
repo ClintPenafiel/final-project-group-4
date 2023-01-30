@@ -1,4 +1,7 @@
 package edu.pacific.comp55.starter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -33,6 +36,7 @@ public class Partygoer {
 	public ArrayList<item> Inventory; //need to set a cap of 4
 	//BusyCounter
 	public Boolean isArrested;
+	private FileWriter myWriter;
 	
 	//add getClue() which takes addtoKnownFact from Partygoer to make the madlibs
 	public Partygoer(Room startingRoom, house thehouse) {
@@ -77,12 +81,12 @@ public class Partygoer {
 		return returnfact;
 	}
 	
-	public Boolean addItem(item addeditem, ArrayList<item> source) {
+	public Boolean addItem(Object object, ArrayList<item> source) {
 				if ((source == this.Inventory && source.size() < 4) || (source == this.currroom.looseStuff && this.currroom.looseStuff.size() < 5)) {
-				source.add(addeditem);
+				source.add((item) object);
 				}
 			else {
-				discardItem(addeditem, source);
+				discardItem((item) object, source);
 			}
 				return true;
 		}
@@ -246,7 +250,7 @@ public class Partygoer {
 			}
 		}
 		else if (currGoal == Goal.RANSACK) {
-			addItem(Ransack(), Inventory);
+			//addItem(Ransack(), Inventory);
 			return true;
 		}
 		else if (currGoal == Goal.EATING) {
@@ -463,265 +467,736 @@ public class Partygoer {
 		}
 		
 		
-		public item Ransack() {
+		//public item Ransack() {
+			public void Ransack() {
 			busynum = 3;
 			int check = rando.nextInt(4);
+			FileWriter myWriter = this.myWriter;
 			if (currroom == thehouse.DiningHall) {
+				File myObj = new File("DiningHall.txt");
+				//FileWriter myWriter = new FileWriter("DiningHall.txt");
 				if (check == 0) {
-					return item.BRIMSTONE;
+					//return item.BRIMSTONE;
+					try {
+						myWriter.write("item.BRIMSTONE");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 1) {
-					return item.BISMUTH;
+					//return item.BISMUTH;
+					try {
+						myWriter.write("item.BISMUTH");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 2) {
-					return item.BROKEN_KEY;
+					//return item.BROKEN_KEY;
+					try {
+						myWriter.write("item.BROKEN_KEY");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 3) {
-					return item.COFFEE;
+					//return item.COFFEE;
+					try {
+						myWriter.write("item.COFFEE");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		else if (currroom == thehouse.Balcony) {
+			File myObj = new File("Balcony.txt");
+			//FileWriter myWriter = new FileWriter("Balcony.txt");
 				if (check == 0) {
-					return item.HEMLOCK;
+					//return item.HEMLOCK;
+					try {
+						myWriter.write("item.HEMLOCK");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 1) {
-					return item.MONEY;
+					//return item.MONEY;
+					try {
+						myWriter.write("item.MONEY");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 2) {
-				return item.JADE_STONE;
+				//return item.JADE_STONE;
+					try {
+						myWriter.write("item.JADE_STONE");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 3) {
-				return item.SPIDER;
+				//return item.SPIDER;
+					try {
+						myWriter.write("item.SPIDER");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		else if (currroom == thehouse.Apothecary) {
+			File myObj = new File("Apothecary.txt");
+			//FileWriter myWriter = new FileWriter("Apothecary.txt");
 			if (check == 0) {
-				return item.ANTIDOTE;
+				//return item.ANTIDOTE;
+				try {
+					myWriter.write("item.ANTIDOTE");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			if (check == 1) {
-				return item.BANDAGE;
+				//return item.BANDAGE;
+				try {
+					myWriter.write("item.BANDAGE");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			if (check == 2) {
-			return item.SEDATIVES;
+			//return item.SEDATIVES;
+			try {
+				myWriter.write("item.SEDATIVES");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}
 			if (check == 3) {
-			return item.CHLOROFORM;
+			//return item.CHLOROFORM;
+			try {
+				myWriter.write("item.CHLOROFORM");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}
 		}
 			else if (currroom == thehouse.TheStudy) {
+				File myObj = new File("TheStudy.txt");
+				//FileWriter myWriter = new FileWriter("TheStudy.txt");
 				if (check == 0) {
-					return item.RITES_OF_THE_HORSEMAN;
+					//return item.RITES_OF_THE_HORSEMAN;
+					try {
+						myWriter.write("item.RITES_OF_THE_HORSEMAN");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 1) {
-					return item.FAE_JOKE_BOOK;
+					//return item.FAE_JOKE_BOOK;
+					try {
+						myWriter.write("item.FAE_JOKE_BOOK");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 2) {
-				return item.THE_7_RITES_OF_RUIN;
+				//return item.THE_7_RITES_OF_RUIN;
+				try {
+					myWriter.write("item.THE_7_RITES_OF_RUIN");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 				if (check == 3) {
-				return item.FAMILIARS;
+				//return item.FAMILIARS;
+				try {
+					myWriter.write("item.FAMILIARS");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 			}
 				else if (currroom == thehouse.Morgue) {
+					File myObj = new File("Morgue.txt");
+					//FileWriter myWriter = new FileWriter("Morgue.txt");
 					if (check == 0) {
-						return item.CHLOROFORM;
+						//return item.CHLOROFORM;
+						try {
+							myWriter.write("item.CHLOROFORM");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 1) {
-						return item.ANTIDOTE;
+						//return item.ANTIDOTE;
+						try {
+							myWriter.write("item.ANTIDOTE");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 2) {
-					return item.SKULL;
+					//return item.SKULL;
+					try {
+						myWriter.write("item.SKULL");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 					if (check == 3) {
-					return item.GOAT_HEAD;
+					//return item.GOAT_HEAD;
+					try {
+						myWriter.write("item.GOAT_HEAD");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 				}
 			else if (currroom == thehouse.Armory) {
+				File myObj = new File("Armory.txt");
+				//FileWriter myWriter = new FileWriter("Armory.txt");
 				if (check == 0) {
-					return item.TORCH;
+					//return item.TORCH;
+					try {
+						myWriter.write("TORCH");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 1) {
-					return item.OLD_PICTURE;
+					//return item.OLD_PICTURE;
+					try {
+						myWriter.write("OLD_PICTURE");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (check == 2) {
-				return item.DAGGER;
+				//return item.DAGGER;
+				try {
+					myWriter.write("DAGGER");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 				if (check == 3) {
-				return item.SWORD;
+				//return item.SWORD;
+				try {
+					myWriter.write("item.SWORD");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 			}
 				else if (currroom == thehouse.Dungeon) {
+					File myObj = new File("Dungeon.txt");
+					//FileWriter myWriter = new FileWriter("Dungeon.txt");
 					if (check == 0) {
-						return item.POISON;
+						//return item.POISON;
+						try {
+							myWriter.write("item.POISON");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 1) {
-						return item.FIRST_AID_KIT;
+						//return item.FIRST_AID_KIT;
+						try {
+							myWriter.write("item.FIRST_AID_KIT");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 2) {
-					return item.RAT;
+					//return item.RAT;
+					try {
+						myWriter.write("item.RAT");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 					if (check == 3) {
-					return item.SKULL;
+					//return item.SKULL;
+					try {
+						myWriter.write("item.SKULL");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 				}
 				else if (currroom == thehouse.Workshop) {
+					File myObj = new File("Workshop.txt");
+					//FileWriter myWriter = new FileWriter("Workshop.txt");
 					if (check == 0) {
-						return item.WRENCH;
+						//return item.WRENCH;
+						try {
+							myWriter.write("item.WRENCH");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 1) {
-						return item.SCREWDRIVER;
+						//return item.SCREWDRIVER;
+						try {
+							myWriter.write("item.SCREWDRIVER");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 2) {
-					return item.BROKEN_KEY;
+					//return item.BROKEN_KEY;
+					try {
+						myWriter.write("item.BROKEN_KEY");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 					if (check == 3) {
-					return item.TORCH;
+					//return item.TORCH;
+					try {
+						myWriter.write("item.TORCH");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 				}
 				else if (currroom == thehouse.Bedroom_1 || currroom == thehouse.Bedroom_2 || currroom == thehouse.Bedroom_3 || currroom == thehouse.Bedroom_4 || currroom == thehouse.Bedroom_5 || currroom == thehouse.Bedroom_6 || currroom == thehouse.Bedroom_7 || currroom == thehouse.Bedroom_8 || currroom == thehouse.Bedroom_9 || currroom == thehouse.Bedroom_10) {
-						if (check == 0) {
-							return item.COBWEB;
+					File myObj = new File("Bedrooms1_10.txt");
+					//FileWriter myWriter = new FileWriter("Bedrooms1_10.txt");	
+					if (check == 0) {
+							//return item.COBWEB;
+							try {
+								myWriter.write("item.COBWEB");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 1) {
-							return item.GOAT_HEAD;
+							//return item.GOAT_HEAD;
+							try {
+								myWriter.write("item.GOAT_HEAD");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 2) {
-						return item.DOLL;
+						//return item.DOLL;
+						try {
+							myWriter.write("item.DOLL");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 						if (check == 3) {
-						return item.SPIDER;
+						//return item.SPIDER;
+						try {
+							myWriter.write("item.SPIDER");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 				}
 				else if (currroom == thehouse.Hallway) {
+					File myObj = new File("Hallway.txt");
+					//FileWriter myWriter = new FileWriter("Hallway.txt");
 					if (check == 0) {
-						return item.WRENCH;
+						//return item.WRENCH;
+						try {
+							myWriter.write("item.WRENCH");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 1) {
-						return item.SCREWDRIVER;
+						//return item.SCREWDRIVER;
+						try {
+							myWriter.write("SCREWDRIVER");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					if (check == 2) {
-					return item.BROKEN_KEY;
+					//return item.BROKEN_KEY;
+					try {
+						myWriter.write("BROKEN_KEY");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 					if (check == 3) {
-					return item.TORCH;
+					//return item.TORCH;
+					try {
+						myWriter.write("item.TORCH");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					}
 				}
 					else if (currroom == thehouse.WineCellar) {
+						File myObj = new File("WineCellar.txt");
+						//FileWriter myWriter = new FileWriter("WineCellar.txt");
 						if (check == 0) {
-							return item.RAT;
+							//return item.RAT;
+							try {
+								myWriter.write("item.RAT");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 1) {
-							return item.OIL;
+							//return item.OIL;
+							try {
+								myWriter.write("item.OIL");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 2) {
-						return item.LANTERN;
+						//return item.LANTERN;
+						try {
+							myWriter.write("item.LANTERN");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 						if (check == 3) {
-						return item.CLOVE_OF_GARLIC;
+						//return item.CLOVE_OF_GARLIC;
+						try {
+							myWriter.write("item.CLOVE_OF_GARLIC");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 					}
 					else if (currroom == thehouse.Kitchen) {
+						File myObj = new File("Kitchen.txt");
+						//FileWriter myWriter = new FileWriter("Kitchen.txt");
 						if (check == 0) {
-							return item.OIL;
+							//return item.OIL;
+							try {
+								myWriter.write("OIL");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 1) {
-							return item.COFFEE;
+							//return item.COFFEE;
+							try {
+								myWriter.write("item.COFFEE");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 2) {
-						return item.RAT;
+						//return item.RAT;
+						try {
+							myWriter.write("item.RAT");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 						if (check == 3) {
-						return item.ROACH;
+						//return item.ROACH;
+						try {
+							myWriter.write("item.ROACH");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 			}
 					else if (currroom == thehouse.GreenHouse) {
+						File myObj = new File("GreenHouse.txt");
+						//FileWriter myWriter = new FileWriter("GreenHouse.txt");
 						if (check == 0) {
-							return item.FRAGRANT_PLANT;
+							//return item.FRAGRANT_PLANT;
+							try {
+								myWriter.write("item.FRAGRANT_PLANT");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 1) {
-							return item.MEDICINAL_PLANT;
+							//return item.MEDICINAL_PLANT;
+							try {
+								myWriter.write("item.MEDICINAL_PLANT");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						if (check == 2) {
-						return item.NOXIOUS_PLANT;
+						//return item.NOXIOUS_PLANT;
+						try {
+							myWriter.write("item.NOXIOUS_PLANT");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 						if (check == 3) {
-						return item.HEMLOCK;
+						//return item.HEMLOCK;
+						try {
+							myWriter.write("item.HEMLOCK");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						}
 					}
 						else if (currroom == thehouse.Outdoors_1) {
+							File myObj = new File("Outdoors_1.txt");
+							//FileWriter myWriter = new FileWriter("Outdoors_1.txt");
 							if (check == 0) {
-								return item.EYE_OF_NEWT;
+								//return item.EYE_OF_NEWT;
+								try {
+									myWriter.write("EYE_OF_NEWT");
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 							if (check == 1) {
-								return item.DEMON_TOOTH;
+								//return item.DEMON_TOOTH;
+								try {
+									myWriter.write("item.DEMON_TOOTH");
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 							if (check == 2) {
-							return item.MEDICINAL_PLANT;
+							//return item.MEDICINAL_PLANT;
+							try {
+								myWriter.write("MEDICINAL_PLANT");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							}
 							if (check == 3) {
-							return item.THE_7_RITES_OF_RUIN;
+							//return item.THE_7_RITES_OF_RUIN;
+							try {
+								myWriter.write("THE_RITES_OF_RUIN");
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							}
 						}
 							else if (currroom == thehouse.Outdoors_2) {
+								File myObj = new File("Outdoors_2.txt");
+								//FileWriter myWriter = new FileWriter("Outdoors_2.txt");
 								if (check == 0) {
-									return item.ROACH;
+									//return item.ROACH;
+									try {
+										myWriter.write("ROACH");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								}
 								if (check == 1) {
-									return item.RAT;
+									//return item.RAT;
+									try {
+										myWriter.write("RAT");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								}
 								if (check == 2) {
-								return item.LANTERN;
+								//return item.LANTERN;
+								try {
+									myWriter.write("LANTERN");
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 								}
 								if (check == 3) {
-								return item.NOXIOUS_PLANT;
+								//return item.NOXIOUS_PLANT;
+								try {
+									myWriter.write("NOXIOUS_PLANT");
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 								}
 							}
 								else if (currroom == thehouse.Outdoors_3) {
+									File myObj = new File("Outdoors_3.txt");
+									//FileWriter myWriter = new FileWriter("Outdoors_3.txt");
 									if (check == 0) {
-										return item.JADE_STONE;
+										//return item.JADE_STONE;
+										try {
+											myWriter.write("item.JADE_STONE");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 									}
 									if (check == 1) {
-										return item.BISMUTH;
+										//return item.BISMUTH;
+										try {
+											myWriter.write("item.BISMUTH");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 									}
 									if (check == 2) {
-									return item.DAGGER;
+									//return item.DAGGER;
+									try {
+										myWriter.write("item.DAGGER");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									}
 									if (check == 3) {
-									return item.HEMLOCK;
+									//return item.HEMLOCK;
+									try {
+										myWriter.write("item.HEMLOCK");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									}
 								}
 								else if (currroom == thehouse.Outdoors_4) {
+									File myObj = new File("Outdoors_4.txt");
+									//FileWriter myWriter = new FileWriter("Outdoors_4.txt");
 										if (check == 0) {
-											return item.FRAGRANT_PLANT;
+											//return item.FRAGRANT_PLANT;
+											try {
+												myWriter.write("item.FRAGRANT_PLANT");
+											} catch (IOException e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+											}
 										}
 										if (check == 1) {
-											return item.LANTERN;
+											//return item.LANTERN;
+											try {
+												myWriter.write("item.LANTERN");
+											} catch (IOException e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+											}
 										}
 										if (check == 2) {
-										return item.URN;
+										//return item.URN;
+										try {
+											myWriter.write("item.URN");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 										}
 										if (check == 3) {
-										return item.SKULL;
+										//return item.SKULL;
+										try {
+											myWriter.write("item.SKULL");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 										}
 									}
 								else if (currroom == thehouse.TheCliff) {
+									File myObj = new File("TheCliff.txt");
+									//FileWriter myWriter = new FileWriter("TheCliff.txt");
 									if (check == 0) {
-										return item.THE_DEMONS_LEGEND;
+										//return item.THE_DEMONS_LEGEND;
+										try {
+											myWriter.write("item.THE_DEMONS_LEGEND");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 									}
 									if (check == 1) {
-										return item.SKULL;
+										//return item.SKULL;
+										try {
+											myWriter.write("item.SKULL");
+										} catch (IOException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 									}
 									if (check == 2) {
-									return item.FEMUR;
+									//return item.FEMUR;
+									try {
+										myWriter.write("item.FEMUR");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									}
 									if (check == 3) {
-									return item.SENTIMENTAL_PEN;
+									//return item.SENTIMENTAL_PEN;
+									try {
+										myWriter.write("item.SENTIMENTAL_PEN");
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									}
 								}
+			
 								
-									return item.RAT;
+			}
 								
-					}
+					
 		
 	
 	
@@ -732,7 +1207,11 @@ public class Partygoer {
 		//Adds moves
 		int choicenum = 1;
 		if (choice == 0) {System.out.print(choicenum + ". search the room for something useful.\n");}
-		if (choicenum == choice) {addItem(Ransack(), Inventory); return;}
+		if (choicenum == choice) {
+			//addItem(Ransack(), Inventory); 
+			Ransack();
+			return;
+			}
 		for (int i=0; i < currroom.adjacentRooms.size(); i++) {
 			choicenum++;
 			 if (choice == 0) {System.out.print(choicenum + ". move to the " + thehouse.RoomtoString(currroom.adjacentRooms.get(i)) + "\n");}
