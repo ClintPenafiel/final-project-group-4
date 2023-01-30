@@ -1,5 +1,8 @@
 package edu.pacific.comp55.starter;
 import java.util.ArrayList;
+import java.io.File; //java library to create files
+import java.io.FileWriter; //lets us write to files
+import java.io.IOException; //catches exceptions so that they can be handled
 import java.util.Random;
 import java.util.Scanner;
 
