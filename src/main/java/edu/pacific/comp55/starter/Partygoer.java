@@ -1,14 +1,18 @@
 package edu.pacific.comp55.starter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
 import java.io.File; //java library to create files
 import java.io.FileWriter; //lets us write to files
 import java.io.IOException; //catches exceptions so that they can be handled
+import java.lang.reflect.Array;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import edu.pacific.comp55.starter.house;
+import edu.pacific.comp55.starter.item;
 
 import edu.pacific.comp55.starter.Rituals.effect;
 
@@ -470,9 +474,14 @@ public class Partygoer {
 		}
 		
 		//implementing HashMap, which accesses house.java and item.java
-		Map<house, List<item>> ItemsInRoom = new HashMap<>();
+		Map<String, List<item>> map = new HashMap<>();
 		
-		public item Ransack() {
+		//itemTable[thehouse.DiningHall] = {item.BRIMSTONE, item.BISMUTH, item.BROKEN_KEY, item.COFFEE};
+		
+		item diningHallTable[] = {item.BRIMSTONE, item.BISMUTH, item.BROKEN_KEY, item.COFFEE};
+
+		/*public item Ransack() {
+
 			busynum = 3;
 			int check = rando.nextInt(4);
 			if (currroom == thehouse.DiningHall) {
@@ -730,7 +739,7 @@ public class Partygoer {
 								
 									return item.RAT;
 								
-					}
+					}*/
 		
 	
 	

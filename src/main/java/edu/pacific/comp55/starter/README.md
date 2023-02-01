@@ -17,4 +17,4 @@ public item Ransack(){
 busynum = 3 //this function cost the NPC or player a busy number of 3
 List <item> Items = Items in the room //get item list in the current room
 TODO: When function gets called, we get random item in the room 
-Save the item to the file
+Save the resulting item to the file
